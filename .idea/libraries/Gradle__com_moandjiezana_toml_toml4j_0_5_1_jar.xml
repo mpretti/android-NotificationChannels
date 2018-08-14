@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.moandjiezana.toml:toml4j:0.5.1@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.moandjiezana.toml/toml4j/0.5.1/398dd237084366b23f4afc1e953cc5cdb94b6c14/toml4j-0.5.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.moandjiezana.toml/toml4j/0.5.1/ae2a2aa1bc5b5f317f3b34faa50bf017b259105d/toml4j-0.5.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

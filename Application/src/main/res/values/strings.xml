@@ -14,6 +14,7 @@
     <string name="secondary1_body">Notification body text.</string>
     <string name="noti_channel_second">Secondary Channel</string>
 
+    <string name="main_create_stellar">Create Account</string>
     <string name="main_primary_title">Primary Channel</string>
     <string name="main_primary_send1">Send 1</string>
     <string name="main_primary_send2">Send 2</string>

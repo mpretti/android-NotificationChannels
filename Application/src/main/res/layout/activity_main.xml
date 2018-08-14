@@ -28,11 +28,11 @@ F
             android:text="@string/main_primary_title" />
 
         <Button
-            android:id="@+id/main_primary_send1"
+            android:id="@+id/main_create_stellar"
             android:layout_columnWeight="1"
             android:layout_height="wrap_content"
 
-            android:text="@string/main_primary_send1" />
+            android:text="@string/main_create_stellar" />
 
         <Button
             android:id="@+id/main_primary_send2"
@@ -100,6 +100,10 @@ F
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/kinetik"/>
         <Button
             android:text="@string/btnA_title"
             android:layout_width="0dp"

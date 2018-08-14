@@ -20,8 +20,10 @@ import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -29,6 +31,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import org.stellar.sdk.KeyPair;
+
+import kin.core.KinAccount;
+import kin.core.KinClient;
+import kin.core.ServiceProvider;
+import kin.core.exception.CreateAccountException;
 
 /**
  * Display main screen for sample. Displays controls for sending test notifications.
@@ -57,6 +66,48 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         noti = new NotificationHelper(this);
         ui = new MainUi(findViewById(R.id.activity_main));
+    }
+
+    /**
+     * Create a Stellar wallet
+     */
+    public void createStellarWallet() {
+        KeyPair pair = KeyPair.random();
+
+        System.out.println( new String(pair.getSecretSeed()) );
+        System.out.println(pair.getAccountId());
+
+        String friendbotUrl = String.format("http://friendbot.stellar.org/?addr=%s", pair.getAccountId());
+        String body;
+        ServiceProvider horizonProvider;
+        KinClient kinClient;
+        KinAccount account;
+
+        Intent msgIntent = new Intent(this, DataService.class);
+        startService(msgIntent);
+
+
+//        horizonProvider = new ServiceProvider("https://horizon.stellar.org", ServiceProvider.NETWORK_ID_MAIN);
+        horizonProvider = new ServiceProvider("https://horizon-testnet.stellar.org", ServiceProvider.NETWORK_ID_TEST);
+        // Android context
+
+        kinClient = new KinClient(getApplicationContext(), horizonProvider);
+        System.out.print("Account count:");
+        System.out.println( kinClient.getAccountCount() );
+
+        try {
+            if (!kinClient.hasAccount()) {
+                account = kinClient.addAccount();
+                System.out.println("KIN account created !:");
+            } else {
+                account = kinClient.getAccount(0);
+                System.out.println("KIN account found!:");
+            }
+            System.out.println(account.getBalance());
+            System.out.println(account.getPublicAddress());
+        } catch (CreateAccountException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -120,12 +171,12 @@ public class MainActivity extends Activity {
 
         private MainUi(View root) {
             titlePrimary = (TextView) root.findViewById(R.id.main_primary_title);
-            ((Button) root.findViewById(R.id.main_primary_send1)).setOnClickListener(this);
+            ((Button) root.findViewById(R.id.main_create_stellar)).setOnClickListener(this);
             ((Button) root.findViewById(R.id.main_primary_send2)).setOnClickListener(this);
             ((ImageButton) root.findViewById(R.id.main_primary_config)).setOnClickListener(this);
 
             titleSecondary = (TextView) root.findViewById(R.id.main_secondary_title);
-            ((Button) root.findViewById(R.id.main_secondary_send1)).setOnClickListener(this);
+            ((Button) root.findViewById(R.id.main_create_stellar)).setOnClickListener(this);
             ((Button) root.findViewById(R.id.main_secondary_send2)).setOnClickListener(this);
             ((ImageButton) root.findViewById(R.id.main_secondary_config)).setOnClickListener(this);
 
@@ -149,9 +200,9 @@ public class MainActivity extends Activity {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.main_primary_send1:
-                    sendNotification(NOTI_PRIMARY1, getTitlePrimaryText());
-                    break;
+//                case R.id.main_primary_send1:
+//                    sendNotification(NOTI_PRIMARY1, getTitlePrimaryText());
+//                    break;
                 case R.id.main_primary_send2:
                     sendNotification(NOTI_PRIMARY2, getTitlePrimaryText());
                     break;
@@ -170,6 +221,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.btnA:
                     goToNotificationSettings();
+                    break;
+                case R.id.main_create_stellar:
+                    createStellarWallet();
                     break;
                 default:
                     Log.e(TAG, "Unknown click event.");

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.kinecosystem:android-stellar-sdk-7871c10779670831fc4ce3ecd17094d4d8ee8ac7">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-stellar-sdk-7871c10779670831fc4ce3ecd17094d4d8ee8ac7.aar/192dcc232e6761adbd181583d4b22f34/jars/libs/net.i2p.crypto-4.0.0.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-stellar-sdk-7871c10779670831fc4ce3ecd17094d4d8ee8ac7.aar/192dcc232e6761adbd181583d4b22f34/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-stellar-sdk-7871c10779670831fc4ce3ecd17094d4d8ee8ac7.aar/192dcc232e6761adbd181583d4b22f34/jars/libs/commons-codec-1.5-android.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-stellar-sdk-7871c10779670831fc4ce3ecd17094d4d8ee8ac7.aar/192dcc232e6761adbd181583d4b22f34/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

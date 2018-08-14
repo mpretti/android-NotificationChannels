@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.kinecosystem:kin-core-android-0.1.4">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/kin-core-android-0.1.4.aar/968cf085ff6195f3d485de4a561972ce/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/kin-core-android-0.1.4.aar/968cf085ff6195f3d485de4a561972ce/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.kinecosystem/kin-core-android/0.1.4/78af1c865e54ce130db49ce5b6acf5fc394f425c/kin-core-android-0.1.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
